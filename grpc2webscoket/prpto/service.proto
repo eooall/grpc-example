@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = ".;proto";
+
+import "annotations.proto";
+
+message In {
+
+}
+
+message Out {
+    string message = 1;
+}
+
+service Ws {
+    rpc Call (In) returns (stream Out) {
+        option (google.api.http) = {
+         get:"/ws"
+        };
+    }
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = ".;proto";
+
+
+message In {
+    string input = 1;
+}
+
+message Out {
+    int32 code = 1;
+    string msg = 2;
+}
+
+service Input {
+    rpc Call (stream In) returns (Out){};
+}

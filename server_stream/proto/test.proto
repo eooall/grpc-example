@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = ".;proto";
+
+message In {
+    string token = 1;
+}
+
+message Out {
+    string data = 1;
+}
+
+service PushData{
+    rpc Call(In) returns (stream Out){};
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+
+option go_package = ".;proto";
+
+
+message User {
+    string name = 1;
+    string pwd = 2;
+}
+
+message Data {
+    int32 code = 1;
+    string msg = 2;
+}
+
+service Login {
+    rpc Call (User) returns (Data) {};
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+
+option go_package= ".;proto";
+
+import "annotations.proto";
+
+message UserInput {
+    string name = 1;
+    string pwd = 2;
+}
+message UserOutput {
+    uint32 code = 1;
+    string msg = 2;
+}
+service LoginService {
+    rpc Call (UserInput) returns (UserOutput){
+        option (google.api.http) = {
+            post:"/login"
+            body:"*"
+        };
+    }
+}
